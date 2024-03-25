@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/backend-dubbo-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend-dubbo-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend-http-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/backend-http-server/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-client/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-config-center/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-config-center/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-registry-center/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-registry-center/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
