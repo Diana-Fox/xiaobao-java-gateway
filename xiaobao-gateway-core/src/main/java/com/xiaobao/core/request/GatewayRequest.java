@@ -230,7 +230,7 @@ public class GatewayRequest implements IGatewayRequest {
 
     @Override
     public void setModifyHost(String modifyHost) {
-        this.modifyScheme = modifyHost;
+        this.modifyHost = modifyHost;
     }
 
     @Override
