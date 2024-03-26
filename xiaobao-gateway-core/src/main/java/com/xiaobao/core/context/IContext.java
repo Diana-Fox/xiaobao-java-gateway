@@ -2,7 +2,7 @@ package com.xiaobao.core.context;
 
 
 import io.netty.channel.ChannelHandlerContext;
-import com.xiaobao.common.rule.Rule;
+import com.xiaobao.common.config.Rule;
 
 import java.util.Map;
 import java.util.function.Consumer;

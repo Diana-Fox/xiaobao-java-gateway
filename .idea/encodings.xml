@@ -13,9 +13,17 @@
     <file url="file://$PROJECT_DIR$/xiaobao-gateway-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xiaobao-gateway-config-center/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xiaobao-gateway-config-center/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-config-center/xiaobao-gateway-config-center-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-config-center/xiaobao-gateway-config-center-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-config-center/xiaobao-gateway-config-center-nacos-impl/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-config-center/xiaobao-gateway-config-center-nacos-impl/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xiaobao-gateway-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xiaobao-gateway-core/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xiaobao-gateway-registry-center/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/xiaobao-gateway-registry-center/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-registry-center/xiaobao-gateway-registry-center-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-registry-center/xiaobao-gateway-registry-center-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-registry-center/xiaobao-gateway-registry-center-nacos-impl/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/xiaobao-gateway-registry-center/xiaobao-gateway-registry-center-nacos-impl/src/main/resources" charset="UTF-8" />
   </component>
 </project>

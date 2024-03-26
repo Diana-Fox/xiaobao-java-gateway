@@ -1,4 +1,4 @@
-package com.xiaobao.common.rule;
+package com.xiaobao.common.config;
 
 import java.io.Serializable;
 import java.util.HashSet;

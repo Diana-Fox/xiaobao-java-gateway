@@ -7,19 +7,21 @@
         <groupId>com.xiaobao</groupId>
         <artifactId>xiaobao-gateway</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>xiaobao-gateway-registry-center</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>xiaobao-gateway-registry-center-api</module>
-        <module>xiaobao-gateway-registry-center-nacos-impl</module>
-    </modules>
+    <artifactId>xiaobao-gateway-config-center-api</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.xiaobao</groupId>
+            <artifactId>xiaobao-gateway-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

@@ -3,7 +3,7 @@ package com.xiaobao.core.helper;
 import com.xiaobao.common.constants.BasicConst;
 import com.xiaobao.common.constants.GatewayConst;
 import com.xiaobao.common.constants.GatewayProtocol;
-import com.xiaobao.common.rule.Rule;
+import com.xiaobao.common.config.Rule;
 import com.xiaobao.core.context.GatewayContext;
 import com.xiaobao.core.request.GatewayRequest;
 import io.netty.channel.ChannelHandlerContext;

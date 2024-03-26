@@ -14,6 +14,8 @@
         <module>xiaobao-gateway-config-center</module>
         <module>xiaobao-gateway-registry-center</module>
         <module>xiaobao-gateway-client</module>
+        <module>xiaobao-gateway-config-center/xiaobao-gateway-config-center-api</module>
+        <module>xiaobao-gateway-config-center/xiaobao-gateway-config-center-nacos-impl</module>
     </modules>
 
     <properties>

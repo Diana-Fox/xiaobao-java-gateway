@@ -3,7 +3,7 @@ package com.xiaobao.core.context;
 import com.xiaobao.core.request.GatewayRequest;
 import com.xiaobao.core.response.GatewayResponse;
 import io.netty.channel.ChannelHandlerContext;
-import com.xiaobao.common.rule.Rule;
+import com.xiaobao.common.config.Rule;
 import io.netty.util.ReferenceCountUtil;
 import lombok.Setter;
 
