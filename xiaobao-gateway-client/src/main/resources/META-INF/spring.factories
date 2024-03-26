@@ -1,3 +1,2 @@
-#????????
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.xiaobao.gateway.client.autoconfiguration.ApiClientAutoConfiguration

@@ -1,5 +1,7 @@
 package org.example.backendhttpserver;
 
+import com.xiaobao.gateway.client.core.ApiProtocol;
+import com.xiaobao.gateway.client.core.ApiService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

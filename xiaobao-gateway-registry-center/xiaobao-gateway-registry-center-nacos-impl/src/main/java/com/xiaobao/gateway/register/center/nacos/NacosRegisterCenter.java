@@ -115,7 +115,7 @@ public class NacosRegisterCenter implements RegisterCenter {
                     if (subscribe.contains(service)) {
                         continue;
                     }
-                    namingService.subscribe(service, eventListener);
+                    namingService.subscribe(service,env, eventListener);
                     log.info("subscribe:{} {}", service, env);
                 }
                 serviceList = namingService.getServicesOfServer(++pageNo, pageSize, env).getData();
