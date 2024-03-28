@@ -7,6 +7,9 @@ import com.xiaobao.common.exception.ResponseException;
 import com.xiaobao.core.config.ConfigLoader;
 import com.xiaobao.core.context.GatewayContext;
 import com.xiaobao.core.context.HttpRequestWrapper;
+import com.xiaobao.core.filter.FilterChainFactory;
+import com.xiaobao.core.filter.GatewayFilterChain;
+import com.xiaobao.core.filter.GatewayFilterChainFactory;
 import com.xiaobao.core.helper.AsyncHttpHelper;
 import com.xiaobao.core.helper.RequestHelper;
 import com.xiaobao.core.helper.ResponseHelper;
@@ -27,14 +30,20 @@ import java.util.concurrent.TimeoutException;
 
 @Slf4j
 public class NettyCoreProcessor implements NettyProcessor {
+    //过滤器链
+    private FilterChainFactory filterChainFactory = GatewayFilterChainFactory.getInstance();
+
     @Override
     public void processor(HttpRequestWrapper wrapper) {
+        //原始的nettyCtx
         ChannelHandlerContext ctx = wrapper.getCtx();
         FullHttpRequest request = wrapper.getRequest();
         try {
             //1、创建网关的上下文
             GatewayContext gatewayContext = RequestHelper.doContext(request, ctx);
-            //2、路由请求获取信息
+            //2、调用过滤器
+            filterChainFactory.buildFilterChain(gatewayContext).doFilter(gatewayContext);
+            //3、路由请求获取信息
             route(gatewayContext);
         } catch (BaseException e) {
             log.error("processor error {},{}", e.getCode().getCode(), e.getCode().getMessage());

@@ -17,7 +17,7 @@ import java.util.*;
 
 public class GatewayRequest implements IGatewayRequest {
     /**
-     * 服务Id
+     * 服务Id 服务+版本
      */
     @Getter
     private final String uniquedId;

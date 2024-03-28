@@ -1,8 +1,11 @@
 package com.xiaobao.gateway.client.core;
 
+/**
+ * 支持的协议
+ */
 public enum ApiProtocol {
-    HTTP("http","http协议"),
-    DUBBO("dubbo","dubbo协议");
+    HTTP("http", "http协议"),
+    DUBBO("dubbo", "dubbo协议");
     private String code;
     private String desc;
 

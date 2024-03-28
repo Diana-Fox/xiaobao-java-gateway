@@ -1,13 +1,22 @@
 package com.xiaobao.common.config;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
 /**
  * 核心规则类
  */
+@Getter@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Rule implements Comparable<Rule>, Serializable {
     /**
      * 规则ID，全局唯一
@@ -22,11 +31,26 @@ public class Rule implements Comparable<Rule>, Serializable {
      */
     private String protocol;
     /**
+     * 后端服务id
+     */
+    private String servicedId;
+    /**
+     * 请求前缀
+     */
+    private String prefix;
+    /**
+     * 路径集合
+     */
+    private List<String> paths;
+    /**
      * 规则顺序，对应的场景：一个路径对应多条规则，然后只执行一条规则的情况
      */
     private Integer order;
     private Set<FilterConfig> filterConfigSet = new HashSet<>();
 
+    /**
+     * 过滤器配置
+     */
     public static class FilterConfig {
         /**
          * 过滤器唯一ID
@@ -71,59 +95,6 @@ public class Rule implements Comparable<Rule>, Serializable {
         }
     }
 
-    public Rule() {
-        super();
-    }
-
-    public Rule(String id, String name, String protocol, Integer order, Set<FilterConfig> filterConfigSet) {
-        this.id = id;
-        this.name = name;
-        this.protocol = protocol;
-        this.order = order;
-        this.filterConfigSet = filterConfigSet;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getProtocol() {
-        return protocol;
-    }
-
-    public void setProtocol(String protocol) {
-        this.protocol = protocol;
-    }
-
-    public Integer getOrder() {
-        return order;
-    }
-
-    public void setOrder(Integer order) {
-        this.order = order;
-    }
-
-    public Set<FilterConfig> getFilterConfigSet() {
-        return filterConfigSet;
-    }
-
-    public void setFilterConfigSet(Set<FilterConfig> filterConfigSet) {
-        this.filterConfigSet = filterConfigSet;
-    }
-
-
     /**
      * 向规则中添加过滤器
      *
@@ -136,12 +107,13 @@ public class Rule implements Comparable<Rule>, Serializable {
 
     /**
      * 通过id获取FilterConfig
+     *
      * @param id
      * @return
      */
     public FilterConfig getFilterConfig(String id) {
         for (FilterConfig filterConfig : filterConfigSet) {
-            if (filterConfig.getId().equalsIgnoreCase(id)) {
+            if (filterConfig.id.equalsIgnoreCase(id)) {
                 return filterConfig;
             }
         }
@@ -151,7 +123,7 @@ public class Rule implements Comparable<Rule>, Serializable {
     @Override
     public int compareTo(Rule o) {
         int orderCompare = Integer.compare(getOrder(), o.getOrder());
-        if(orderCompare==0){
+        if (orderCompare == 0) {
             return getId().compareTo(o.getId());
         }
         return orderCompare;
@@ -164,13 +136,13 @@ public class Rule implements Comparable<Rule>, Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if(this==obj){
+        if (this == obj) {
             return true;
         }
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        Rule that=(Rule)obj;
+        Rule that = (Rule) obj;
         return id.equals(that.id);
     }
 }

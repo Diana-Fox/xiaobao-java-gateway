@@ -14,10 +14,23 @@ public class DynamicConfigMannager {
     private ConcurrentHashMap<String/*uniqunedId*/, Set<ServiceInstance>> serviceInstanceMap = new ConcurrentHashMap<>();
     //规则集合
     private ConcurrentHashMap<String/*ruleId*/, Rule> ruleMap = new ConcurrentHashMap<>();
+    //路径以及规则的结合
+    private ConcurrentHashMap<String/*path*/, Rule> pathRuleMap = new ConcurrentHashMap<>();
+    //通过服务名称获取
+    private ConcurrentHashMap<String/*服务名称*/, List<Rule>> serviceRuleMap = new ConcurrentHashMap<>();
 
     /*********************************单例的处理****************************************/
     private DynamicConfigMannager() {
     }
+
+    public Rule getRuleByPath(String key) {
+        return pathRuleMap.get(key);
+    }
+
+    public List<Rule> getRuleByServiceId(String serviceId) {
+        return serviceRuleMap.get(serviceId);
+    }
+
 
     private static class SingleHolder {
         private static final DynamicConfigMannager INSTANCE = new DynamicConfigMannager();
@@ -48,7 +61,7 @@ public class DynamicConfigMannager {
         return serviceDefinitionMap;
     }
 
-    /****************对方服务实例缓存进行操作*************************/
+    /****************对服务实例缓存进行操作*************************/
     //获取服务实例
     public Set<ServiceInstance> getServiceInstanceByUniquedId(String uniquedId) {
         return serviceInstanceMap.get(uniquedId);
@@ -97,15 +110,33 @@ public class DynamicConfigMannager {
     }
 
     /**********************对规则缓存操作的方法**************************/
-    //添加单个规则
-    public void putRule(String ruleId, Rule rule) {
-        ruleMap.put(ruleId, rule);
-    }
+
 
     //添加多个规则
-    public void putAllRule(List<Rule> rules) {
-        Map<String, Rule> map = rules.stream().collect(Collectors.toMap(Rule::getId, r -> r));
-        ruleMap = new ConcurrentHashMap<>(map);
+    public void putAllRule(List<Rule> ruleList) {
+        ConcurrentHashMap<String, Rule> newRuleMap = new ConcurrentHashMap<>();
+        ConcurrentHashMap<String, Rule> newPathMap = new ConcurrentHashMap<>();
+        ConcurrentHashMap<String, List<Rule>> newServiceMap = new ConcurrentHashMap<>();
+        //处理规则
+        for (Rule rule : ruleList) {
+            newRuleMap.put(rule.getId(), rule);
+            //拿到以前的
+            List<Rule> rules = newServiceMap.get(rule.getServicedId());
+            if (rules == null) {
+                rules = new ArrayList<>();
+            }
+            //往以前的里面加上新的
+            rules.add(rule);
+            newServiceMap.put(rule.getServicedId(), rules);
+            List<String> paths = rule.getPaths();
+            for (String path : paths) {
+                String key = rule.getServicedId() + "." + path;
+                newPathMap.put(key, rule);
+            }
+        }
+        this.ruleMap = newRuleMap;
+        this.pathRuleMap = newPathMap;
+        this.serviceRuleMap = newServiceMap;
     }
 
     //获取规则
@@ -122,4 +153,5 @@ public class DynamicConfigMannager {
     public ConcurrentHashMap<String, Rule> getRuleMap() {
         return ruleMap;
     }
+
 }
